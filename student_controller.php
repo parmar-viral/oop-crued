@@ -24,8 +24,14 @@ class student{
         $res=mysqli_query($this->db,$sql);
         return $res;
     }
-    function delete(){
-
+    function delete($id){
+        $sql="DELETE FROM `student` WHERE `rno`='$id'";
+        $res=mysqli_query($this->db,$sql);
+        if($res){
+            header("location:index.php");
+        }else{
+            echo 'data not deleted.......';
+        }
     }
 }
 //object creation 
@@ -35,14 +41,14 @@ if(isset($_POST['submit'])){
     $scity=$_POST['scity'];
     $file=$_FILES['s_sign']['name'];
     $tname=$_FILES['s_sign']['tmp_name'];
-    $folder="images/$file";
+    $folder="img/".$file;
     move_uploaded_file($tname,$folder);
-    
     
    $sobj->insert($sname,$scity,$folder);
 }
 elseif(isset($_POST['delete'])){
-
+    $id=$_POST['rno'];
+    $sobj->delete($id);
 }
 
 
