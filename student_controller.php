@@ -19,6 +19,15 @@ class student{
             echo 'data not inserted';
         }
     }
+    function update($id,$sname,$scity,$folder){
+        $sql="UPDATE `student` SET `sname`='$sname',`scity`='$scity',`s_sign`='$folder' WHERE `rno`='$id'";
+        $res=mysqli_query($this->db,$sql);
+        if($res){
+            echo 'data updated successfully';
+        }else{
+            echo 'data not updated';
+        }
+    }
     function dataview(){
         $sql="SELECT * FROM `student`";
         $res=mysqli_query($this->db,$sql);
@@ -45,6 +54,17 @@ if(isset($_POST['submit'])){
     move_uploaded_file($tname,$folder);
     
    $sobj->insert($sname,$scity,$folder);
+}
+elseif(isset($_POST['update'])){
+    $id=$_POST['rno'];
+    $sname=$_POST['sname'];
+    $scity=$_POST['scity'];
+    $file=$_FILES['s_sign']['name'];
+    $tname=$_FILES['s_sign']['tmp_name'];
+    $folder="img/".$file;
+    move_uploaded_file($tname,$folder);
+    
+   $sobj->update($id,$sname,$scity,$folder);
 }
 elseif(isset($_POST['delete'])){
     $id=$_POST['rno'];

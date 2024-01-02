@@ -51,15 +51,16 @@
             </div>         
         </form>
     </div>  
-    <div class="card">
+    <div class="card mb-3">
         <div class="row mt-1">
-            <div class="row m-1">
+            <div class="row m-1 text text-dark">
                 <div class="col">#</div>
                 <div class="col">sname</div>
                 <div class="col">scity</div>
                 <div class="col">ssign</div>
                 <div class="col">Action</div>
             </div>
+            <hr>
             <?php
                $data=$sobj->dataview();                            
                while($row=mysqli_fetch_assoc($data)) {
@@ -78,11 +79,7 @@
                     <img src="<?php echo $row["s_sign"]; ?>" height="80px" width="80px">
                 </div>
                 <div class="col">
-                    <form action="" method="POST">
-                        <input type="number" name="rno" value="<?php echo $row['rno'];?>" hidden>
-                        <button class="btn btn-primary" type="submit" name="update"
-                            onclick="return confirm('are you sure to update')">update</button>
-                    </form>
+                   <a href="update.php?id=<?php echo $row['rno'];?>"><span class="btn btn-primary">update</span></a>
                     <form action="" method="POST">
                         <input type="number" name="rno" value="<?php echo $row['rno'];?>" hidden>
                         <button class="btn btn-danger" type="submit" name="delete"
