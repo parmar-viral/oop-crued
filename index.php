@@ -79,7 +79,7 @@
                     <img src="<?php echo $row["s_sign"]; ?>" height="80px" width="80px">
                 </div>
                 <div class="col">
-                   <a href="update.php?id=<?php echo $row['rno'];?>"><span class="btn btn-primary">update</span></a>
+                   <a href="update.php?id=<?php echo $row['rno'];?>"><span class="btn btn-primary mb-3">update</span></a>
                     <form action="" method="POST">
                         <input type="number" name="rno" value="<?php echo $row['rno'];?>" hidden>
                         <button class="btn btn-danger" type="submit" name="delete"

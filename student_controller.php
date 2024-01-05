@@ -23,9 +23,10 @@ class student{
         $sql="UPDATE `student` SET `sname`='$sname',`scity`='$scity',`s_sign`='$folder' WHERE `rno`='$id'";
         $res=mysqli_query($this->db,$sql);
         if($res){
-            echo 'data updated successfully';
-        }else{
-            echo 'data not updated';
+            header("location:index.php");
+        }
+        else{
+            echo "data not updated";
         }
     }
     function dataview(){
@@ -56,7 +57,7 @@ if(isset($_POST['submit'])){
    $sobj->insert($sname,$scity,$folder);
 }
 elseif(isset($_POST['update'])){
-    $id=$_POST['rno'];
+    $id=$_POST['id'];
     $sname=$_POST['sname'];
     $scity=$_POST['scity'];
     $file=$_FILES['s_sign']['name'];
