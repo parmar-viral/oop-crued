@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     $scity=$_POST['scity'];
     $file=$_FILES['s_sign']['name'];
     $tname=$_FILES['s_sign']['tmp_name'];
-    $folder="img/".$file;
+    $folder="image/".$file;
     move_uploaded_file($tname,$folder);
     
    $sobj->insert($sname,$scity,$folder);
@@ -62,7 +62,7 @@ elseif(isset($_POST['update'])){
     $scity=$_POST['scity'];
     $file=$_FILES['s_sign']['name'];
     $tname=$_FILES['s_sign']['tmp_name'];
-    $folder="img/".$file;
+    $folder="image/".$file;
     move_uploaded_file($tname,$folder);
     
    $sobj->update($id,$sname,$scity,$folder);

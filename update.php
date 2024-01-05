@@ -10,7 +10,7 @@
         $scity=$_POST['scity'];
         $file=$_FILES['s_sign']['name'];
         $tname=$_FILES['s_sign']['tmp_name'];
-	    $folder="img/".$file;
+	    $folder="image/".$file;
 	    move_uploaded_file($tname,$folder);
         $res=$obj->update($id,$sname,$scity,$folder);
         if($res){

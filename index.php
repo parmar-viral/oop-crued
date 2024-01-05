@@ -8,7 +8,7 @@
         $scity=$_POST['scity'];
         $file=$_FILES['s_sign']['name'];
         $tname=$_FILES['s_sign']['tmp_name'];
-	    $folder="images/".$file;
+	    $folder="image/".$file;
 	    move_uploaded_file($tname,$folder);
         $res=$obj->insert($sname,$scity,$folder);
         if($res){
